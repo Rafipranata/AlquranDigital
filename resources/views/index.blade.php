@@ -20,9 +20,9 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg" style="background-color: #E9F6FF ">
         <div class="container">
-            <a class="navbar-brand" href="#">Duta Quran</a>
+            <a class="navbar-brand fw-bold" href="https://www.instagram.com/duta.code/?igsh=NzZnOTIwa3Y2ZDYz" style="color: #FE7A36;">Duta  <span style="color: #280274;">Quran</span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -56,7 +56,7 @@
                     <div class="float-end fs-3">
                         <!-- Content floated to the left -->
                         <div>
-                            <a href="/index/{{ $item->nomor }}">
+                            <a href="/quran/surah/{{ $item->nomor }}">
                                 <i class="bi bi-arrow-right"></i>
                             </a>
                         </div>

@@ -14,9 +14,7 @@ use App\Http\Controllers\QuranController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::get('/index', [QuranController::class, "index"]);
-Route::get('/index/{id}', [QuranController::class, "indexId"]);
+
+Route::get('/', [QuranController::class, "index"]);
+Route::get('/quran/surah/{id}', [QuranController::class, "indexId"]);
