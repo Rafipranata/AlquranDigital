@@ -61,7 +61,6 @@
         text-align: right;
     }
     </style>
-
 </head>
 
 <body>
@@ -71,17 +70,13 @@
                 Duta
                 <span class="navbar-brand-fo">Quran</span>
             </a>
-
             <a href="/" class="btn-arrow ms-auto fs-5 rounded">
                 <i class="bi bi-arrow-left px-2 text-white"></i>
             </a>
         </div>
     </nav>
-
     <div class="container">
     @if (count($searchResults) > 0)
-        
-    
         @foreach ($searchResults as $result)
             <div class="card mt-3 mb-3 shadow-sm ">
                 <div class="card-body">
@@ -106,7 +101,6 @@
                 </div>
             </div>
         @endforeach
-            
         @else
         <div class="text-center mt-10 fw-bold">
             <p>No results found.</p>
