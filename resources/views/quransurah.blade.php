@@ -21,45 +21,46 @@
             --Color-default-1: #ffffff;
             --Font-default-3: sans-serif;
         }
-
+    
         .navbar {
             transition: transform 0.3s ease-in-out;
             background-color: var(--Color-default-4);
         }
-
+    
         .navbar .container .table {
             margin-top: 25px;
         }
-
+    
         .navbar .navbar-brand {
             color: var(--Color-default-5);
         }
-
+    
         .btn-mode,
         .btn-arrow {
             background-color: var(--Color-default-7);
         }
-
+    
         .navbar-brand-fo {
             color: var(--Color-default-6);
         }
-
+    
         .table .box-ind,
         .table .box-ind .table {
             border-bottom: 1px solid;
             font-family: var(--Font-default-3);
         }
-
+    
         .table .box .ayat {
             text-align: right;
             font-family: 'Noto Naskh Arabic';
         }
-
+    
         .table .box .description {
             font-size: 17px;
             text-align: right;
         }
     </style>
+    
 </head>
 
 <body>
@@ -69,10 +70,10 @@
                 Duta
                 <span class="navbar-brand-fo">Quran</span>
             </a>
-            <a href="/" class="btn-arrow ms-auto fs-2 rounded">
+            <a href="/" class="btn-arrow ms-auto fs-5 rounded">
                 <i class="bi bi-arrow-left px-2 text-white"></i>
             </a>
-            <a class="btn-mode fs-2 border-0 rounded ms-2" id="darkModeToggle">
+            <a class="btn-mode fs-5 border-0 rounded ms-2" id="darkModeToggle">
                 <i class="bi bi-cloud-sun-fill px-2 text-white" id="darkModeIcon"></i>
             </a>
         </div>
@@ -85,17 +86,17 @@
                         @foreach ($response->ayat as $ayat)
                             <tr>
                                 <td class="box">
-                                    <div class="ayat fs-1 fw-bolder mt-4 mb-2 text-break lh-lg">{{ $ayat->ar }}
+                                    <div class="ayat fs-1 fw-bolder mt-4 mb-2 text-break lh-lg" >{{ $ayat->ar }}
                                     </div>
                                     <div class="description text-dark-emphasis mb-2">{!! $ayat->tr !!}</div>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="box-ind">
-                                    <div class="arti mt-2 mb-3 fs-5">{{ $loop->iteration }}. {{ $ayat->idn }}</div>
-                                    <button class="btn btn-primary shadow-sm mb-3 float-end">
-                                        <i class="bi bi-arrow-up-right-circle-fill mb-2">
-                                            Tafsir Ayat Ke 1145
+                                    <div class="arti mt-2 mb-3 fs-6">{{ $loop->iteration }}. {{ $ayat->idn }}</div>
+                                    <button class="btn shadow-sm mb-3 float-end" style="background-color: #FE7A36; color:white;">
+                                        <i class="bi bi-arrow-up-right-circle-fill mb-2 fs-6">
+                                            Tafsir Ayat Ke {{ $ayat->nomor }}
                                         </i>
                                     </button>
                                 </td>

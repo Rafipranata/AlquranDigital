@@ -47,7 +47,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg shadow-sm p-2">
+    <nav class="navbar navbar-expand-lg shadow-sm ">
         <div class="container">
             <a class="navbar-brand fw-bold fs-2" href="https://www.instagram.com/duta.code/?igsh=NzZnOTIwa3Y2ZDYz">
                 Duta
@@ -61,8 +61,8 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 </ul>
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <form class="d-flex" method="GET" action="{{route('quran.search')}}">
+                    <input class="form-control me-2" type="search" name="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
             </div>
