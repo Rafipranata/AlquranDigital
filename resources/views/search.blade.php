@@ -102,7 +102,11 @@
             </div>
         @endforeach
         @else
-        <div class="text-center mt-10 fw-bold">
+        <div style="display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 80vh;
+        margin: 0;" class="fw-bold fs-3">
             <p>No results found.</p>
         </div>        
     @endif

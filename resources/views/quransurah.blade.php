@@ -82,6 +82,12 @@
         </div>
     </nav>
     <section class="box-fill py-5">
+        @if ( $response->nomor != 1 && $response->nomor != 9)
+        <div class="text-center fw-bold fs-2 mt-5" style="font-family: Noto Naskh Arabic">
+            <p>بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ</p>
+        </div>
+            
+        @endif
         <div class="container my-4">
             <div class="table-responsive">
                 <table class="table table-borderless">
@@ -96,13 +102,9 @@
                             </tr>
                             <tr>
                                 <td class="box-ind">
-                                    <div class="arti mt-2 mb-3 fs-5 lh-base">{{ $loop->iteration }}. {{ $ayat->idn }}
+                                    <div class="arti mt-2 mb-3 fs-6 lh-base">{{ $loop->iteration }}. {{ $ayat->idn }}
                                     </div>
-                                    <button class="btn shadow-sm mb-3 float-end text-white">
-                                        <i class="bi bi-arrow-up-right-circle-fill mb-2 fs-6">
-                                            Tafsir Ayat Ke {{ $ayat->nomor }}
-                                        </i>
-                                    </button>
+
                                 </td>
                             </tr>
                         @endforeach
@@ -110,24 +112,26 @@
                 </table>
             </div>
         </div>
-        <div class="button-next">
+        
             <div class="container ">
                 @if ($response->surat_sebelumnya)
                     <a href="/quran/surah/{{ $response->surat_sebelumnya->nomor }}"
-                        class="btn btn-danger p-3 me-3 rounded text-white float-left">
-                        <i class="bi bi-arrow-bar-left"></i>
-                        <span class="ms-2 text-uppercase">Surat Sebelumnya</span>
+                        class="btn btn-danger text-white m rounded text-white float-left"style="background-color: 
+                        #FE7A36;">
+                        <i class="bi bi-arrow-left mx-1 text-white"></i>
+                        Sebelumnya
                     </a>
                 @endif
                 @if ($response->surat_selanjutnya)
                     <a href="/quran/surah/{{ $response->surat_selanjutnya->nomor }}"
-                        class="btn btn-primary p-3 rounded text-white float-end">
-                        <span class="me-2 text-uppercase">Surat Selanjutnya</span>
-                        <i class="bi bi-arrow-bar-right"></i>
+                        class="btn rounded text-white  float-end" style="background-color: 
+                        #FE7A36;">
+                        Selanjutnya
+                        <i class="bi bi-arrow-right mx-1"></i>
                     </a>
                 @endif
             </div>
-        </div>
+        
     </section>
     <script>
         (() => {
