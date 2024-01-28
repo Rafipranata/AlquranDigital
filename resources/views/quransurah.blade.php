@@ -13,7 +13,7 @@
     <style>
         :root {
             --Color-default-6: #020739;
-            --Color-default-5: #FE7A36;
+            --Color-default-5: #fd6d24;
             --Color-default-4: #E9F6FF;
             --Color-default-3: #8a2be2;
             --Color-default-2: #6501c3;
@@ -82,11 +82,22 @@
         </div>
     </nav>
     <section class="box-fill py-5">
-        @if ( $response->nomor != 1 && $response->nomor != 9)
-        <div class="text-center fw-bold fs-2 mt-5" style="font-family: Noto Naskh Arabic">
-            <p>بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ</p>
-        </div>
-            
+        @if ($response->nomor != 1 && $response->nomor != 9)
+            <div class="text-center fw-bold fs-2 mt-5" style="font-family: Noto Naskh Arabic">
+                <p>بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ</p>
+            </div>
+            <table class="table">
+                <tbody class="container border-2">
+                    <th class="float-start">
+                        <p>First</p>
+                        <p>Name</p>
+                    </th>
+                    <th class="float-end">
+                        <p>First</p>
+                        <p>Name</p>
+                    </th>
+                </tbody>
+            </table>
         @endif
         <div class="container my-4">
             <div class="table-responsive">
@@ -104,7 +115,6 @@
                                 <td class="box-ind">
                                     <div class="arti mt-2 mb-3 fs-6 lh-base">{{ $loop->iteration }}. {{ $ayat->idn }}
                                     </div>
-
                                 </td>
                             </tr>
                         @endforeach
@@ -112,26 +122,22 @@
                 </table>
             </div>
         </div>
-        
-            <div class="container ">
-                @if ($response->surat_sebelumnya)
-                    <a href="/quran/surah/{{ $response->surat_sebelumnya->nomor }}"
-                        class="btn btn-danger text-white m rounded text-white float-left"style="background-color: 
-                        #FE7A36;">
-                        <i class="bi bi-arrow-left mx-1 text-white"></i>
-                        Sebelumnya
-                    </a>
-                @endif
-                @if ($response->surat_selanjutnya)
-                    <a href="/quran/surah/{{ $response->surat_selanjutnya->nomor }}"
-                        class="btn rounded text-white  float-end" style="background-color: 
-                        #FE7A36;">
-                        Selanjutnya
-                        <i class="bi bi-arrow-right mx-1"></i>
-                    </a>
-                @endif
-            </div>
-        
+        <div class="container">
+            @if ($response->surat_sebelumnya)
+                <a href="/quran/surah/{{ $response->surat_sebelumnya->nomor }}"
+                    class="btn rounded text-white float-left" style="background-color: var(--Color-default-5)">
+                    <i class="bi bi-arrow-left mx-1 text-white"></i>
+                    SEBELUMNYA
+                </a>
+            @endif
+            @if ($response->surat_selanjutnya)
+                <a href="/quran/surah/{{ $response->surat_selanjutnya->nomor }}"
+                    class="btn rounded text-white float-end" style="background-color: var(--Color-default-5)">
+                    SELANJUTNYA
+                    <i class="bi bi-arrow-right mx-1"></i>
+                </a>
+            @endif
+        </div>
     </section>
     <script>
         (() => {
