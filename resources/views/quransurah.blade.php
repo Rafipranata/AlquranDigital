@@ -31,7 +31,8 @@
             margin-top: 25px;
         }
 
-        .navbar .navbar-brand {
+        .navbar .navbar-brand,
+        .arti-ayat {
             color: var(--Color-default-5);
         }
 
@@ -67,7 +68,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg fixed-top shadow-sm p-2" id="navbar">
+    <nav class="navbar navbar-expand-lg sticky-top shadow-sm p-2" id="navbar">
         <div class="container d-flex justify-content-between align-items-center">
             <a class="navbar-brand fw-bold fs-2" href="https://www.instagram.com/duta.code/?igsh=NzZnOTIwa3Y2ZDYz">
                 Duta
@@ -81,23 +82,30 @@
             </button>
         </div>
     </nav>
-    <section class="box-fill py-5">
+    <div class="container py-3">
+        <table class="table table-borderless text-center" style="border-bottom: 1px solid black;">
+            <tbody>
+                <tr>
+                    <th>
+                        <p class="fs-2">{{ $response->nama_latin }} </p>
+                        <p class="arti-ayat fs-4">{{ $response->arti }} </p>
+                        <p>{{ $response->jumlah_ayat }} Ayat </p>
+                        <p>
+                            <audio controls autoplay>
+                                <source src="{{ $response->audio }} " type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </p>
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <section class="box-fill">
         @if ($response->nomor != 1 && $response->nomor != 9)
-            <div class="text-center fw-bold fs-2 mt-5" style="font-family: Noto Naskh Arabic">
+            <div class="text-center fw-bold fs-2 mt-3" style="font-family: Noto Naskh Arabic">
                 <p>بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ</p>
             </div>
-            <table class="table">
-                <tbody class="container border-2">
-                    <th class="float-start">
-                        <p>First</p>
-                        <p>Name</p>
-                    </th>
-                    <th class="float-end">
-                        <p>First</p>
-                        <p>Name</p>
-                    </th>
-                </tbody>
-            </table>
         @endif
         <div class="container my-4">
             <div class="table-responsive">
@@ -125,14 +133,14 @@
         <div class="container">
             @if ($response->surat_sebelumnya)
                 <a href="/quran/surah/{{ $response->surat_sebelumnya->nomor }}"
-                    class="btn rounded text-white float-left" style="background-color: var(--Color-default-5)">
+                    class="btn rounded text-white float-left mb-5" style="background-color: var(--Color-default-5)">
                     <i class="bi bi-arrow-left mx-1 text-white"></i>
                     SEBELUMNYA
                 </a>
             @endif
             @if ($response->surat_selanjutnya)
                 <a href="/quran/surah/{{ $response->surat_selanjutnya->nomor }}"
-                    class="btn rounded text-white float-end" style="background-color: var(--Color-default-5)">
+                    class="btn rounded text-white float-end mb-5" style="background-color: var(--Color-default-5)">
                     SELANJUTNYA
                     <i class="bi bi-arrow-right mx-1"></i>
                 </a>
