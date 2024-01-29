@@ -38,7 +38,7 @@
 
     .btn-mode,
     .btn-arrow {
-        background-color: var(--Color-default-7);
+        background-color: var(--Color-default-5);
     }
 
     .navbar-brand-fo {
