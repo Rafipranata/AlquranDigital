@@ -49,7 +49,7 @@
 <body>
     <nav class="navbar navbar-expand-lg shadow-sm ">
         <div class="container">
-            <a class="navbar-brand fw-bold fs-2" href="https://www.instagram.com/duta.code/?igsh=NzZnOTIwa3Y2ZDYz">
+            <a class="navbar-brand fw-bold fs-2" href="https://www.instagram.com/rafi.nataa/">
                 Duta
                 <span class="navbar-brand-fo">Quran</span>
             </a>
