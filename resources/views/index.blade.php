@@ -1,102 +1,109 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AlquranDigital</title>
-    <link rel="shortcut icon" href="" type="image/x-icon">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Aref+Ruqaa&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duta Quran</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        td {
-            font-family: 'Amiri Quran', serif;
+        body {
+            background: linear-gradient(to bottom right, #000000, #003366, #f0f0f0); /* Softer white gradient */
+            color: white;
         }
-
-        :root {
-            --Colo-default-6: #280274;
-            --Colo-default-5: #FE7A36;
-            --Colo-default-4: #E9F6FF;
-            --Color-default-3: #8a2be2;
-            --Color-default-2: #6501c3;
-            --Color-default-1: #ffffff;
-            --Font-default-3: sans-serif;
+        .container {
+            margin-top: 50px;
         }
-
-        .navbar {
-            transition: transform 0.3s ease-in-out;
-            background-color: var(--Colo-default-4);
+        .card {
+            background-color: rgba(255, 255, 255, 0.2);
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
         }
-
-        .navbar .container .table {
-            margin-top: 25px;
+        .card-body {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-
-        .navbar .navbar-brand {
-            color: var(--Colo-default-5);
+        .section h1 {
+            text-align: center;
+            margin-bottom: 50px;
         }
-
-        .navbar-brand-fo {
-            color: var(--Colo-default-6);
+        footer {
+            color: white;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .search-bar {
+            margin-bottom: 30px;
+        }
+        .search-bar form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .search-bar input {
+            width: 60%; /* Adjusted width for the search bar */
+            max-width: 500px; /* Set maximum width for larger screens */
+            margin-right: 10px; /* Spacing between input and button */
+        }
+        .search-bar button {
+            background-color: #003366; /* Button color */
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .search-bar button:hover {
+            background-color: #00509e; /* Hover effect */
         }
     </style>
-
 </head>
-
 <body>
-    <nav class="navbar navbar-expand-lg shadow-sm ">
-        <div class="container">
-            <a class="navbar-brand fw-bold fs-2" href="https://www.instagram.com/rafi.nataa/">
-                Duta
-                <span class="navbar-brand-fo">Quran</span>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                </ul>
-                <form class="d-flex" method="GET" action="{{route('quran.search')}}">
-                    <input class="form-control me-2" type="search" name="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
-            </div>
-        </div>
-    </nav>
+
     <div class="section">
         <div class="container">
-            @foreach ($response as $item)
-                <div class="card mt-3 mb-3 shadow-sm ">
-                    <div class="card-body">
-                        <div class="float-start fw-bold">
-                            <!-- Content floated to the right -->
-                            <span class="fs-5">
-                                {{ $item->nama_latin }}
-                            </span>
-                            <br>
-                            <i>
-                                {{ $item->arti }}
-                            </i>
-                        </div>
-                        <div class="float-end fs-3">
-                            <!-- Content floated to the left -->
-                            <div>
-                                <a href="/quran/surah/{{ $item->nomor }}">
-                                    <i class="bi bi-arrow-right"></i>
-                                </a>
+            <div class="text-center">
+                <h1>Duta Quran</h1>
+                <p class="lead">Teknologi Menghubungkan Kita dengan Pesan Ilahi</p>
+            </div>
+
+            <!-- Search Bar with Submit Button -->
+            <div class="search-bar text-center">
+                <form method="GET" action="#">
+                    <input type="text" name="search" class="form-control" placeholder="Cari Surah..." value="{{ request()->get('search') }}">
+                    <button type="submit" class="btn">Search</button>
+                </form>
+            </div>
+
+            <div class="row">
+                @foreach ($response as $item)
+                    <div class="col-md-4">
+                        <!-- Wrapping card in <a> tag to make it clickable -->
+                        <a href="/quran/surah/{{ $item->nomor }}">
+                            <div class="card mt-3 mb-3 shadow">
+                                <div class="card-body">
+                                    <div class="float-start">
+                                        <span class="fs-5 fw-bold text-light">{{ $item->nama_latin }}</span><br>
+                                        <i class="text-light">{{ $item->arti }}</i>
+                                    </div>
+                                    <div class="float-end">
+                                        <i class="bi bi-arrow-right fs-3"></i>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
-                </div>
-            @endforeach
+                @endforeach
+            </div>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-</body>
 
+    <footer>
+        <p>Developed by Rafi.nataa</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+</body>
 </html>

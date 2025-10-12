@@ -49,4 +49,6 @@ class QuranController extends Controller
     }
 }
 
+    
+
 }
