@@ -58,11 +58,8 @@
 
         .search-bar input {
             width: 60%;
-            /* Lebar pencarian */
             max-width: 500px;
-            /* Lebar maksimum */
             margin-right: 10px;
-            /* Jarak antara input dan tombol */
         }
 
         .search-bar button {

@@ -42,12 +42,12 @@
             align-items: center;
         }
         .search-bar input {
-            width: 60%; /* Adjusted width for the search bar */
-            max-width: 500px; /* Set maximum width for larger screens */
-            margin-right: 10px; /* Spacing between input and button */
+            width: 60%; 
+            max-width: 500px;
+            margin-right: 10px; 
         }
         .search-bar button {
-            background-color: #003366; /* Button color */
+            background-color: #003366; 
             border: none;
             color: white;
             padding: 10px 20px;
@@ -55,7 +55,7 @@
             border-radius: 5px;
         }
         .search-bar button:hover {
-            background-color: #00509e; /* Hover effect */
+            background-color: #00509e; 
         }
     </style>
 </head>
@@ -101,7 +101,7 @@
     </div>
 
     <footer>
-        <p>Developed by Rafi.nataa</p>
+        <p>Developed by <b>Rafi.nataa</b></p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
