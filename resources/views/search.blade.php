@@ -1,117 +1,162 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AlquranDigital</title>
-    <link rel="shortcut icon" href="" type="image/x-icon">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Aref+Ruqaa&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duta Quran</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        :root {
-        --Color-default-7: #FFA447;
-        --Color-default-6: #020739;
-        --Color-default-5: #FE7A36;
-        --Color-default-4: #E9F6FF;
-        --Color-default-3: #8a2be2;
-        --Color-default-2: #6501c3;
-        --Color-default-1: #ffffff;
-        --Font-default-3: sans-serif;
-    }
+        body {
+            background: linear-gradient(to bottom right, #000000, #003366, #f0f0f0);
+            /* Gradient latar belakang */
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
 
-    .navbar {
-        transition: transform 0.3s ease-in-out;
-        background-color: var(--Color-default-4);
-    }
+        .container {
+            margin-top: 50px;
+            flex: 1;
+        }
 
-    .navbar .container .table {
-        margin-top: 25px;
-    }
+        .card {
+            background-color: rgba(255, 255, 255, 0.2);
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+        }
 
-    .navbar .navbar-brand {
-        color: var(--Color-default-5);
-    }
+        .card-body {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    .btn-mode,
-    .btn-arrow {
-        background-color: var(--Color-default-5);
-    }
+        .section h1 {
+            text-align: center;
+            margin-bottom: 50px;
+        }
 
-    .navbar-brand-fo {
-        color: var(--Color-default-6);
-    }
+        footer {
+            color: white;
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px 0;
+        }
 
-    .table .box-ind,
-    .table .box-ind .table {
-        border-bottom: 1px solid;
-        font-family: var(--Font-default-3);
-    }
+        .search-bar {
+            margin-bottom: 30px;
+        }
 
-    .table .box .ayat {
-        text-align: right;
-        font-family: 'Noto Naskh Arabic';
-    }
+        .search-bar form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-    .table .box .description {
-        font-size: 17px;
-        text-align: right;
-    }
+        .search-bar input {
+            width: 60%;
+            /* Lebar pencarian */
+            max-width: 500px;
+            /* Lebar maksimum */
+            margin-right: 10px;
+            /* Jarak antara input dan tombol */
+        }
+
+        .search-bar button {
+            background-color: #003366;
+            /* Warna tombol */
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .search-bar button:hover {
+            background-color: #00509e;
+            /* Efek hover */
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .card-container {
+            max-width: 300px;
+            width: 100%;
+        }
+
+        .no-results {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+            margin: 0;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
     </style>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg shadow-sm ">
+
+    <div class="section">
         <div class="container">
-            <a class="navbar-brand fw-bold fs-2" href="https://www.instagram.com/duta.code/?igsh=NzZnOTIwa3Y2ZDYz">
-                Duta
-                <span class="navbar-brand-fo">Quran</span>
-            </a>
-            <a href="/" class="btn-arrow ms-auto fs-5 rounded">
-                <i class="bi bi-arrow-left px-2 text-white"></i>
-            </a>
-        </div>
-    </nav>
-    <div class="container">
-    @if (count($searchResults) > 0)
-        @foreach ($searchResults as $result)
-            <div class="card mt-3 mb-3 shadow-sm ">
-                <div class="card-body">
-                    <div class="float-start fw-bold">
-                        <!-- Content floated to the right -->
-                        <span class="fs-5">
-                            {{ $result->nama_latin }}
-                        </span>
-                        <br>
-                        <i>
-                            {{ $result->arti }}
-                        </i>
-                    </div>
-                    <div class="float-end fs-3">
-                        <!-- Content floated to the left -->
-                        <div>
-                            <a href="/quran/surah/{{ $result->nomor }}">
-                                <i class="bi bi-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+            <div class="text-center">
+                <h1>Duta Quran</h1>
+                <p class="lead">Teknologi Menghubungkan Kita dengan Pesan Ilahi</p>
             </div>
-        @endforeach
-        @else
-        <div style="display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 80vh;
-        margin: 0;" class="fw-bold fs-3">
-            <p>No results found.</p>
-        </div>        
-    @endif
+
+            <!-- Form Pencarian -->
+            <div class="search-bar text-center">
+                <form method="GET" action="{{ route('quran.search') }}">
+                    <input type="text" name="search" class="form-control" placeholder="Cari Surah..."
+                        value="{{ request()->get('search') }}">
+                    <button type="submit" class="btn">Cari</button>
+                </form>
+            </div>
+
+            <!-- Hasil Pencarian -->
+            <div class="row">
+                @if (count($searchResults) > 0)
+                @foreach ($searchResults as $result)
+                <div class="col-md-4 ">
+                    <!-- Membuat card menjadi dapat diklik -->
+                    <a href="/quran/surah/{{ $result->nomor }}">
+                        <div class="card mt-3 mb-3 shadow">
+                            <div class="card-body">
+                                <div class="float-start">
+                                    <span class="fs-5 fw-bold text-light">{{ $result->nama_latin }}</span><br>
+                                    <i class="text-light">{{ $result->arti }}</i>
+                                </div>
+                                <div class="float-end">
+                                    <i class="bi bi-arrow-right fs-3"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                @endforeach
+                @else
+                <div class="no-results">
+                    <p>Tidak ada hasil ditemukan.</p>
+                </div>
+                @endif
+            </div>
+        </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <footer>
+        <p>Developed by Rafi.nataa</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
 </body>
 
 </html>

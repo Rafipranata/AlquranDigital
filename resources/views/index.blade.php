@@ -70,11 +70,12 @@
 
             <!-- Search Bar with Submit Button -->
             <div class="search-bar text-center">
-                <form method="GET" action="#">
+                <form method="GET" action="{{ route('quran.search') }}">
                     <input type="text" name="search" class="form-control" placeholder="Cari Surah..." value="{{ request()->get('search') }}">
                     <button type="submit" class="btn">Search</button>
                 </form>
             </div>
+
 
             <div class="row">
                 @foreach ($response as $item)

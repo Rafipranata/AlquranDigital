@@ -138,10 +138,10 @@
                     <p class="arti-ayat fs-4">{{ $response->arti }}</p>
                     <p class="text-light">{{ $response->jumlah_ayat }} Ayat</p>
                     <p>
-                        {{-- <audio controls autoplay>
+                        <audio controls autoplay>
                             <source src="{{ $response->audio }}" type="audio/mpeg">
                             Your browser does not support the audio element.
-                        </audio> --}}
+                        </audio>
                     </p>
                 </th>
             </tr>
